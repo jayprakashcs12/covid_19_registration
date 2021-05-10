@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Covid Registration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/covid.css">
+    <link rel="shortcut icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <img src="images/logo.jpg" class="logo" alt="Logo">
+      <input class="menu-btn" type="checkbox" id="menu-btn"/>
+      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+      <ul class="menu">
+        <li><a target="_blank" href="index.html">Register</a></li>
+        <li><a target="_blank" href="corporate-training.html">Corporate Training</a></li>
+        <li><a target="_blank" href="placement-page.html">Placement Page</a></li>
+        <li><a target="_blank" href="review.html">Reviews</a></li>
+        <li><a target="_blank" href="blog.html">Blog</a></li>
+      </ul>
+    </header>
+    <main class="main">
+      <div class="section">
+        <h1 class="covid">COVID-19 Vaccine Registration</h1>
+      </div>
+    </main>
+    <hr>
+    <button class="button primary" id="myBtn"><i class="fa fa-plus-circle"></i> Register</button>
+    <div class="list">
+      <table>
+        <thead>
+          <tr>
+            <th>F. Name</th>
+            <th>L. Name</th>
+            <th>Aadhar</th>
+            <th>Contact</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>c_history</th>
+            <th>Symptoms</th>
+            <th>Address</th>
+            <th>Landmark</th>
+            <th>PinCode</th>
+            <th>State</th>
+            <th colspan="2">Action</th>
+          </tr>
+        </thead>
+        <tbody id="sect">
+          
+        </tbody>
+      </table>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p><b>Register Covid-19 Vaccine</b></p>
+        <hr>
+        <form onsubmit="onLogin(event)">
+          <div class="row">
+            <div class="col-1-25">
+              <label for="fname"><b>Name</b></label>
+              <input type="text" name="firstname" placeholder="Enter First Name" oninvalid="this.setCustomValidity('Please Enter First Name')" oninput="this.setCustomValidity('')">
+            </div>
+            <div class="col-2-25">
+              <input type="text" name="lastname" placeholder="Enter Last Name" oninvalid="this.setcustomValidity('Please Enter Last Name')" oninput="this.setCustomValidity('')">
+            </div>
+            <div class="col-1-50">
+              <label for="Aadhar"><b>Aadhar No.</b></label>
+              <input type="text" name="aadhar" placeholder="Enter 12 Digit Aadhar No" pattern="[0-9]{12}" oninvalid="this.setCustomValidity('Please Enter 12 Digit Aadhar No.')" oninput="this.setCustomValidity('')">
+            </div>
+            <div class="col-2-50">
+              <label for="contact"><b>Contact Number</b></label>
+              <input type="text" name="number" placeholder="Enter Contact Number" pattern="[0-9]{10}" oninvalid="this.setCustomValidity('Enter Contact Number')" oninput="this.setCustomValidity('')">
+            </div>
+            <div class="col-3-50">
+              <label for="contact"><b>Date Of Birth</b></label><br>
+              <input type="date" name="date" oninvalid="this.setCustomValidity('Please Enter DOB')" oninput="this.setCustomValidity('')">
+            </div>
+            <div class="col-4-50">
+              <label for="gender"><b>Gender</b></label><br>
+              <input type="radio" name="gender" value="Male">Male &nbsp;
+              <input type="radio" name="gender" value="Female">Fe-Male &nbsp;
+              <input type="radio" name="gender" value="Other">Other
+            </div>
+            <div class="col-5-50">
+              <label for="diagnised"><b>Have You Been Diagnised For Covid-19 ?</b></label> <br>
+              <input type="radio" name="diagnised" value="Yes">Yes &nbsp;
+              <input type="radio" name="diagnised" value="No">No
+            </div>
+            <div class="col-1-100" >
+              <label for="symptoms"><b>Please Check All Symptoms That Apply ?</b></label><br>
+              <input type="checkbox" name="symptoms" value="Loss Of Taste / Smell"> Loss Of Taste / Smell &nbsp;
+              <input type="checkbox" name="symptoms" value="Difficullty Breathing"> Difficullty Breathing &nbsp;
+              <input type="checkbox" name="symptoms" value="Cough"> Cough &nbsp;
+              <input type="checkbox" name="symptoms" value="Running Nose"> Running Nose &nbsp;
+              <input type="checkbox" name="symptoms" value="Body Pains"> Body Pains &nbsp;
+              <input type="checkbox" name="symptoms" value="Headache"> Headache &nbsp; 
+              <input type="checkbox" name="symptoms" value="Sore Throat"> Sore Throat &nbsp;
+              <input type="checkbox" name="symptoms" value="Fever"> Fever
+            </div>
+            <div class="col-100">
+              <label for="address"><b>Address</b></label>
+            </div>
+            <div class="col-6-50">
+              <input type="text" name="street_address" placeholder="Street Address" oninvalid="this.setCustomValidity('Please Enter Street Address')" oninput="this.setCustomValidity('')">
+            </div>
+            <div class="col-7-50">
+              <input type="text" name="landmark" placeholder="Landmark" oninvalid="this.setCustomValidity('Please Enter Landmark')" oninput="this.setCustomValidity('')">
+            </div>
+            <div class="col-8-50">
+              <input type="text" name="pincode" placeholder="Pincode" pattern="[0-9]{06}"  oninvalid="this.setCustomValidity('Please Enter Pincode')" oninput="this.setCustomValidity('')">
+            </div>
+            <div class="col-9-50">
+              <input type="text" name="state" placeholder="State"  oninvalid="this.setCustomValidity('Please Enter State')" oninput="this.setCustomValidity('')">
+            </div>
+            <div class="col-2-100">
+              <input type="checkbox">Check Me Out
+            </div>
+            <div class="col-2-100">
+              <button type="submit" class="button info" onclick="myFunction()">Submit</button>
+              <button type="reset" class="button danger">Reset</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footer">
+      
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
